@@ -1,24 +1,40 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import authApi from "../api/authApi";
+import { useAuth } from "../hooks/useAuth";
+import { useCart } from "../context/CartContext";
 
 function UserLayout() {
-    // Giả sử là người dùng đã đăng nhập hoặc chưa
-    const isLoggedIn = false;  // Bạn có thể thay đổi trạng thái này để kiểm tra trạng thái đăng nhập
+    const [loading, setLoading] = useState(false);
+    const { isLoggedIn, setIsLoggedIn } = useAuth();
+    const navigate = useNavigate();
+    const { cartItemCount } = useCart();
+    
+    const handleLogout = async () => {
+        try {
+            await authApi.logout();
+            setIsLoggedIn(false);
+            navigate("/login");
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
-        <div className=" bg-light">
-            {/* Header */}
+        <div className="bg-light">
             <nav
-                className="navbar navbar-expand-lg shadow-sm vw-100"
+                className="navbar navbar-expand-lg shadow-sm"
                 style={{
-                    background: 'linear-gradient(90deg, #FF6F61, #FF9671)',
-                    color: '#fff',
+                    background: "linear-gradient(90deg, #FF6F61, #FF9671)",
+                    color: "#fff",
                 }}
             >
                 <div className="container">
                     {/* Logo */}
-                    <Link className="navbar-brand text-white fw-bold" to={""} id="logo">
-                        <span style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>F</span>
+                    <Link className="navbar-brand text-white fw-bold" to="/" id="logo">
+                        <span style={{ fontWeight: "bold", fontSize: "1.5rem" }}>F</span>
                         ashion <span>Shop</span>
                     </Link>
 
@@ -31,24 +47,28 @@ function UserLayout() {
                         aria-controls="navbarSupportedContent"
                         aria-expanded="false"
                         aria-label="Toggle navigation"
-                        style={{ borderColor: '#fff' }}
+                        style={{ borderColor: "#fff" }}
                     >
-                        <span className="navbar-toggler-icon" style={{ color: '#fff' }}></span>
+                        <span className="navbar-toggler-icon" style={{ color: "#fff" }}></span>
                     </button>
 
                     {/* Navigation Links */}
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link text-white" to={""}>Home</Link>
+                                <Link className="nav-link text-white" to="/">
+                                    Home
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-white" to={""}>Shop</Link>
+                                <Link className="nav-link text-white" to="/products">
+                                    Shop
+                                </Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <Link
                                     className="nav-link dropdown-toggle text-white"
-                                    to={""}
+                                    to="#"
                                     id="navbarDropdown"
                                     role="button"
                                     data-bs-toggle="dropdown"
@@ -57,18 +77,42 @@ function UserLayout() {
                                     Categories
                                 </Link>
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to={""}>Men</Link></li>
-                                    <li><Link className="dropdown-item" to={""}>Women</Link></li>
-                                    <li><Link className="dropdown-item" to={""}>Kids</Link></li>
-                                    <li><Link className="dropdown-item" to={""}>Accessories</Link></li>
-                                    <li><Link className="dropdown-item" to={""}>Shoes</Link></li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/category/men">
+                                            Men
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/category/women">
+                                            Women
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/category/kids">
+                                            Kids
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/category/accessories">
+                                            Accessories
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/category/shoes">
+                                            Shoes
+                                        </Link>
+                                    </li>
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-white" to={""}>About</Link>
+                                <Link className="nav-link text-white" to="/about">
+                                    About
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-white" to={""}>Contact</Link>
+                                <Link className="nav-link text-white" to="/contact">
+                                    Contact
+                                </Link>
                             </li>
                         </ul>
 
@@ -80,29 +124,71 @@ function UserLayout() {
                                 placeholder="Search for products..."
                                 aria-label="Search"
                             />
-                            <button
-                                className="btn btn-light text-primary"
-                                type="submit"
-                            >
+                            <button className="btn btn-light text-primary" type="submit">
                                 Search
                             </button>
                         </form>
 
+                        {/* Cart Icon */}
+                        <div className="d-flex align-items-center mx-2 position-relative">
+                            <Link to="/carts" className="btn btn-light text-primary position-relative">
+                                <i className="fas fa-shopping-cart fa-lg"></i>
+                                {cartItemCount > 0 && (
+                                    <span
+                                        className="badge bg-danger text-white rounded-circle position-absolute top-0 start-100 translate-middle"
+                                        style={{ fontSize: "0.75rem" }}
+                                    >
+                                        {cartItemCount}
+                                    </span>
+                                )}
+                            </Link>
+                        </div>
+
                         {/* User Actions (Login/Profile) */}
                         <div className="d-flex align-items-center mx-2">
-                            {!isLoggedIn ? (
-                                <>
-                                    <Link to="/login" className="btn btn-light text-primary me-2">
-                                        <i className="fas fa-sign-in-alt"></i> Login
-                                    </Link>
-                                    <Link to="/register" className="btn btn-light text-primary">
-                                        <i className="fas fa-user-plus"></i> Register
-                                    </Link>
-                                </>
+                            {isLoggedIn ? (
+                                <div className="dropdown">
+                                    <button
+                                        className="btn btn-light text-primary dropdown-toggle"
+                                        type="button"
+                                        id="userDropdown"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        <i className="fas fa-user"></i> Tài khoản
+                                    </button>
+                                    <ul
+                                        className="dropdown-menu"
+                                        aria-labelledby="userDropdown"
+                                    >
+                                        <li>
+                                            <Link className="dropdown-item" to="/profile">
+                                                Hồ sơ cá nhân
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <button
+                                                onClick={handleLogout}
+                                                className="dropdown-item text-danger"
+                                                disabled={loading}
+                                            >
+                                                {loading ? "Đang đăng xuất..." : "Đăng xuất"}
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
                             ) : (
-                                <Link to="/profile" className="btn btn-light text-primary">
-                                    <i className="fas fa-user"></i> Profile
-                                </Link>
+                                    <>
+                                        <Link
+                                            to="/login"
+                                            className="btn btn-light text-primary me-2"
+                                        >
+                                            <i className="fas fa-sign-in-alt"></i> Login
+                                        </Link>
+                                        <Link to="/register" className="btn btn-light text-primary">
+                                            <i className="fas fa-user-plus"></i> Register
+                                        </Link>
+                                    </>
                             )}
                         </div>
                     </div>
@@ -110,17 +196,26 @@ function UserLayout() {
             </nav>
 
             {/* Main Content */}
-            <main className="mt-4">
+            <main className="mt-4 min-vh-100">
                 <Outlet />
             </main>
 
             {/* Footer */}
             <footer className="bg-dark text-white text-center py-3 mt-4">
                 <p className="mb-0">© 2024 Fashion Shop. All Rights Reserved.</p>
-                <p className="small">Follow us:
-                    <a href="#" className="text-light ms-2">Facebook</a> |
-                    <a href="#" className="text-light ms-2">Instagram</a> |
-                    <a href="#" className="text-light ms-2">Twitter</a>
+                <p className="small">
+                    Follow us:
+                    <Link to="#" className="text-light ms-2">
+                        Facebook
+                    </Link>{" "}
+                    |
+                    <Link to="#" className="text-light ms-2">
+                        Instagram
+                    </Link>{" "}
+                    |
+                    <Link to="#" className="text-light ms-2">
+                        Twitter
+                    </Link>
                 </p>
             </footer>
         </div>
