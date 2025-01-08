@@ -77,7 +77,7 @@ function CartPage() {
                             </div>
                         </div>
                         {/* Cart Item */}
-                        <div className=" w-full p-2">
+                        <div className=" w-full overflow-y-auto h-[45rem] p-2">
                                 {cartItems.map((item) => (
                                     <CartItem
                                         key={item.id}
@@ -91,7 +91,7 @@ function CartPage() {
 
                     </div>
                     {/* Summary */}
-                    <div className="w-1/4 mt-4">
+                    <div className="w-1/3 mt-4">
                         <div className="bg-white shadow-sm rounded-lg p-4">
                             <div className="text-center mb-4">
                                 <h5 className="text-xl font-semibold">ORDER SUMMARY</h5>
