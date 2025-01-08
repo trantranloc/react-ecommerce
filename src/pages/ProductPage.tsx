@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import productApi from '../api/productApi';
 import ProductCard from '../components/ProductCard';
 
