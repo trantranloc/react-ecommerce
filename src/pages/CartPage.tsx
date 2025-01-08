@@ -64,53 +64,67 @@ function CartPage() {
     );
 
     return (
-        <div className="container my-5">
-            <h2 className="text-center mb-4">Giỏ hàng của bạn</h2>
-            {cartItems.length === 0 ? (
-                <div className="text-center">
-                    <p>Giỏ hàng của bạn đang trống.</p>
-                    <button className="btn btn-primary">Tiếp tục mua sắm</button>
-                </div>
-            ) : (
-                <div className="d-flex flex-lg-row flex-column align-items-start">
-                    {/* Cart Items */}
-                    <div className="w-100 me-lg-4">
-                        {cartItems.map((item) => (
-                            <CartItem
-                                key={item.id}
-                                item={item}
-                                handleIncrease={handleIncrease}
-                                handleDecrease={handleDecrease}
-                                handleRemove={handleRemove}
-                            />
-                        ))}
-                    </div>
-
-                    {/* Summary */}
-                    <div className="w-100 mt-4 mt-lg-0">
-                        <div className="card shadow-sm">
-                            <div className="card-body">
-                                <h5 className="card-title text-center mb-4">Tóm tắt giỏ hàng</h5>
-                                <p className="card-text d-flex justify-content-between">
-                                    <span>Tổng số sản phẩm:</span>
-                                    <strong>{cartItems.reduce((total, item) => total + item.quantity, 0)}</strong>
-                                </p>
-                                <p className="card-text d-flex justify-content-between">
-                                    <span>Tổng giá trị:</span>
-                                    <strong>{totalPrice.toLocaleString()} VND</strong>
-                                </p>
-                                <button className="btn btn-primary w-100">
-                                    Thanh toán
-                                </button>
-                                <button className="btn btn-outline-secondary w-100 mt-2">
-                                    Tiếp tục mua sắm
-                                </button>
+        <>
+            <div className="container mx-auto">
+                <h2 className="text-2xl font-bold text-gray-500">My Cart</h2>
+                <div className="flex  justify-center py-4">
+                    <div className="flex flex-col w-full">
+                        <div className="flex bg-primary w-full m-0">
+                            <div className="flex text-white justify-around items-center w-full">
+                                <span className="flex-1 text-center">Product</span>
+                                <span className="flex-1 text-center">Quantity</span>
+                                <span className="flex-1 text-center">Total Price</span>
                             </div>
+                        </div>
+                        {/* Cart Item */}
+                        <div className=" w-full p-2">
+                                {cartItems.map((item) => (
+                                    <CartItem
+                                        key={item.id}
+                                        item={item}
+                                        handleIncrease={handleIncrease}
+                                        handleDecrease={handleDecrease}
+                                        handleRemove={handleRemove}
+                                    />
+                                ))}
+                        </div>
+
+                    </div>
+                    {/* Summary */}
+                    <div className="w-1/4 mt-4">
+                        <div className="bg-white shadow-sm rounded-lg p-4">
+                            <div className="text-center mb-4">
+                                <h5 className="text-xl font-semibold">ORDER SUMMARY</h5>
+                            </div>
+                            <div className="flex justify-between mb-2">
+                                <span>Total Product :</span>
+                                <strong>{cartItems.reduce((total, item) => total + item.quantity, 0)}</strong>
+                            </div>
+                            <div className="flex justify-between mb-4">
+                                <span>Subtotal :</span>
+                                <strong>{totalPrice.toLocaleString()} VND</strong>
+                            </div>
+                            <div className="flex justify-between mb-4">
+                                <span>Delivery :</span>
+                                <strong> Free</strong>
+                            </div>
+                            <div className="flex justify-between mb-4">
+                                <span>Tax :</span>
+                                <strong> Free</strong>
+                            </div>
+                            <hr /> 
+                            <div className="flex justify-between my-4">
+                                <span>Total :</span>
+                                <strong> {totalPrice.toLocaleString()}</strong>
+                            </div>
+                            <button className="w-full bg-primary text-white py-2 rounded-md hover:bg-blue-600 transition-colors">
+                                Proccees to checkout
+                            </button>
                         </div>
                     </div>
                 </div>
-            )}
-        </div>
+            </div>
+        </>
 
     );
 }
