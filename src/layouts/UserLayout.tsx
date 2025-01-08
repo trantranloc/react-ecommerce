@@ -5,6 +5,7 @@ import { useAuth } from "../hooks/useAuth";
 import { useCart } from "../context/CartContext";
 import UserHeader from "./UserHeader";
 import UserNavbar from "./UserNavbar";
+import UserFooter from "./UserFooter";
 
 function UserLayout() {
     const [loading, setLoading] = useState(false);
@@ -25,33 +26,17 @@ function UserLayout() {
     };
 
     return (
-        
-        <div className="bg-light">
+
+        <div className="bg-white">
+            {/* Hearder */}
             <UserHeader />
-            <UserNavbar/>
+            <UserNavbar />
             {/* Main Content */}
             <main className="mt-4 min-vh-100">
                 <Outlet />
             </main>
-
             {/* Footer */}
-            <footer className="bg-dark text-white text-center py-3 mt-4">
-                <p className="mb-0">© 2024 Fashion Shop. All Rights Reserved.</p>
-                <p className="small">
-                    Follow us:
-                    <Link to="#" className="text-light ms-2">
-                        Facebook
-                    </Link>{" "}
-                    |
-                    <Link to="#" className="text-light ms-2">
-                        Instagram
-                    </Link>{" "}
-                    |
-                    <Link to="#" className="text-light ms-2">
-                        Twitter
-                    </Link>
-                </p>
-            </footer>
+            <UserFooter />
         </div>
     );
 }
