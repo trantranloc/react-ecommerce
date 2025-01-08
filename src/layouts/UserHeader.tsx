@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import MiniCart from "../components/MiniCart";
+import { useCart } from "../context/CartContext";
 
 export default function UserHeader() {
+    const { cartItemCount } = useCart();
     return (
         // Header
         <header className="bg-white shadow-lg">
@@ -44,16 +47,13 @@ export default function UserHeader() {
 
                     {/* Cart Icon */}
                     <div className="relative group">
-                        <Link to="/carts" className="text-gray-600 hover:text-primary">
+                        <span  className="text-gray-600 hover:text-primary">
                             <i className="fas fa-shopping-cart text-2xl"></i>
-                        </Link>
-                        <span className="absolute bottom-4 left-4 px-2 py-1 text-xs text-white bg-red-500 rounded-full">
-                            3
                         </span>
-                        <div className="absolute z-20 right-0 top-full w-72 p-6 shadow-lg group-hover:block hidden bg-white">
-                            <b className="text-bold text-lg text-primary">Giỏ Hàng</b>
-
-                        </div>
+                        <span className="absolute bottom-4 left-4 px-2 py-1 text-xs text-white bg-red-500 rounded-full">
+                            {cartItemCount}
+                        </span>
+                        <MiniCart />
                     </div>
                     {/* User Avatar or Profile */}
                     <div className="relative group">

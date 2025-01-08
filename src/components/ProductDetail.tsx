@@ -60,55 +60,47 @@ const ProductDetail = () => {
     };
 
     return (
-        <div className="container px-4 px-lg-5 my-5">
-            <div className="row gx-4 gx-lg-5 align-items-center">
-                {/* Hình ảnh sản phẩm */}
-                <div className="col-md-6">
+        <div className="container mx-auto px-4 my-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
+                <div className="border border-primary">
                     <img
-                        className="card-img-top mb-5 mb-md-0"
+                        className="w-1/2 h-[40rem] rounded mb-5 md:mb-0"
                         src={product.image || "default-image.jpg"}
                         alt={product.title}
                     />
                 </div>
-
-                <div className="col-md-6">
-                    {/* SKU (Mã sản phẩm) */}
-                    <div className="small mb-1">SKU: {product.id}</div>
-
-                    {/* Tên sản phẩm */}
-                    <h1 className="display-5 fw-bolder">{product.title}</h1>
-
-                    {/* Hiển thị giá cũ và giá hiện tại */}
-                    <div className="fs-5 mb-5">
+                <div>
+                    <div className="text-sm mb-1">SKU: {product.id}</div>
+                    <h1 className="text-2xl font-bold">{product.title}</h1>
+                    <div className="text-lg mb-5">
                         {product.oldPrice && (
-                            <span className="text-decoration-line-through">${product.oldPrice}</span>
+                            <span className="line-through mr-2">${product.oldPrice}</span>
                         )}
                         <span>${product.price}</span>
                     </div>
-
-                    {/* Mô tả sản phẩm */}
-                    <p className="lead">{product.description}</p>
-
-                    {/* Thêm vào giỏ hàng */}
-                    <div className="d-flex">
+                    <p className="text-base">{product.description}</p>
+                    <div className="flex items-center mt-4">
                         <input
-                            className="form-control text-center me-3"
+                            className="w-16 text-center border border-gray-300 rounded mr-3"
                             id="inputQuantity"
                             type="number"
-                            value={quantity}  // Bind quantity state to input value
-                            onChange={handleQuantityChange}  // Update state on change
-                            style={{ maxWidth: '3rem' }}
+                            value={quantity}
+                            onChange={handleQuantityChange}
                             min="1"
                         />
-                        <button className="btn btn-outline-dark flex-shrink-0" type="button"
-                            onClick={handleAddToCart}>
-                            <i className="bi-cart-fill me-1"></i>
+                        <button
+                            className="bg-gray-800 text-white py-2 px-4 rounded"
+                            type="button"
+                            onClick={handleAddToCart}
+                        >
+                            <i className="bi-cart-fill mr-1"></i>
                             Add to cart
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 
