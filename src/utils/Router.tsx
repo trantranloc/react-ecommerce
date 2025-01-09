@@ -11,6 +11,8 @@ import ProfilePage from '../pages/ProfilePage';
 import CartPage from '../pages/CartPage';
 import ProductManagement from '../pages/admin/ProductPage';
 import ProductPage from '../pages/ProductPage';
+import UserProfileNav from '../layouts/UserProfileNav';
+import MyAccount from '../pages/MyAccount';
 
 function Router() {
     return (
@@ -21,9 +23,13 @@ function Router() {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/products/:id" element={<ProductDetail />} />
-                <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/carts" element={<CartPage />} />
                 <Route path="/products" element={<ProductPage />} />
+                <Route element={<UserProfileNav />} >
+                    <Route path="/my-account" element={<MyAccount />} />
+                    <Route path="/profile-info" element={<ProfilePage />} />
+
+                </Route>
             </Route>
 
             {/* Các route cho admin */}

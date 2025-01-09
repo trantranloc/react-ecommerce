@@ -86,7 +86,7 @@ export default function UserHeader() {
                                 <Link to="/my-wishlist" className="flex no-underline items-center text-gray-600 hover:text-blue-500 transition-colors duration-200">
                                     <i className="fas fa-heart text-lg mr-2"></i> My Wishlist
                                 </Link>
-                                <Link to="/logout" className="flex no-underline items-center text-gray-600 hover:text-red-500 transition-colors duration-200">
+                                <Link to="/auth/logout" className="flex no-underline items-center text-gray-600 hover:text-red-500 transition-colors duration-200">
                                     <i className="fas fa-sign-out-alt text-lg mr-2 text-red"></i> Logout
                                 </Link>
                             </div>
