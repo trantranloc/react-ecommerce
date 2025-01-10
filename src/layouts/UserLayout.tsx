@@ -32,7 +32,7 @@ function UserLayout() {
             <UserHeader />
             <UserNavbar />
             {/* Main Content */}
-            <main className="mt-4 min-vh-100">
+            <main className=" container mx-auto mt-4 min-vh-100">
                 <Outlet />
             </main>
             {/* Footer */}

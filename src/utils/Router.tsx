@@ -13,6 +13,8 @@ import ProductManagement from '../pages/admin/ProductPage';
 import ProductPage from '../pages/ProductPage';
 import UserProfileNav from '../layouts/UserProfileNav';
 import MyAccount from '../pages/MyAccount';
+import CheckoutPage from '../pages/CheckoutPage';
+import ManageAddressPage from '../pages/ManageAddressPage';
 
 function Router() {
     return (
@@ -25,9 +27,11 @@ function Router() {
                 <Route path="/products/:id" element={<ProductDetail />} />
                 <Route path="/carts" element={<CartPage />} />
                 <Route path="/products" element={<ProductPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
                 <Route element={<UserProfileNav />} >
                     <Route path="/my-account" element={<MyAccount />} />
                     <Route path="/profile-info" element={<ProfilePage />} />
+                    <Route path="/manage-address" element={<ManageAddressPage />} />
 
                 </Route>
             </Route>

@@ -26,6 +26,13 @@ export default function UserProfileNav() {
                         Profile Information
                     </NavLink>
                     <NavLink
+                        to="/manage-address"
+                        className={({ isActive }) => isActive ? "flex items-center py-2 text-blue-500" : "flex items-center py-2"}
+                    >
+                        <i className="fa-regular fa-map mr-2"></i>
+                        Manage Address
+                    </NavLink>
+                    <NavLink
                         to="/change-password"
                         className={({ isActive }) => isActive ? "flex items-center py-2 text-blue-500" : "flex items-center py-2"}
                     >
