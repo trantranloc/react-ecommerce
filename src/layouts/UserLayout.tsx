@@ -1,30 +1,10 @@
-import React, { useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import authApi from "../api/authApi";
-import { useAuth } from "../hooks/useAuth";
-import { useCart } from "../context/CartContext";
+import React from "react";
 import UserHeader from "./UserHeader";
 import UserNavbar from "./UserNavbar";
 import UserFooter from "./UserFooter";
+import { Outlet } from "react-router-dom";
 
 function UserLayout() {
-    const [loading, setLoading] = useState(false);
-    const { isLoggedIn, setIsLoggedIn } = useAuth();
-    const navigate = useNavigate();
-    const { cartItemCount } = useCart();
-
-    const handleLogout = async () => {
-        try {
-            await authApi.logout();
-            setIsLoggedIn(false);
-            navigate("/login");
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     return (
 
         <div className="bg-white">

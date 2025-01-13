@@ -76,7 +76,7 @@ export default function RegisterPage() {
                             </Link>
                         </div>
                         <div className="text-center mt-2">
-                            <Link className="text-sm text-blue-500 hover:underline" to={"/auth/login"}>
+                            <Link className="text-sm text-blue-500 hover:underline" to={"/login"}>
                                 Already have an account? Login!
                             </Link>
                         </div>

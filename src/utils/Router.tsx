@@ -15,6 +15,8 @@ import UserProfileNav from '../layouts/UserProfileNav';
 import MyAccount from '../pages/MyAccount';
 import CheckoutPage from '../pages/CheckoutPage';
 import ManageAddressPage from '../pages/ManageAddressPage';
+import ForgotPasswordPage from '../pages/ForgotPasswordPage';
+import ChangePassword from '../pages/ChangePassword';
 
 function Router() {
     return (
@@ -28,6 +30,9 @@ function Router() {
                 <Route path="/carts" element={<CartPage />} />
                 <Route path="/products" element={<ProductPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                <Route path="/change-password" element={<ChangePassword />} />
+
                 <Route element={<UserProfileNav />} >
                     <Route path="/my-account" element={<MyAccount />} />
                     <Route path="/profile-info" element={<ProfilePage />} />

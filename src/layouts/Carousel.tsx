@@ -104,24 +104,24 @@ const Carousel = () => {
                 <div className="container lg:max-w-screen-lg justify-between">
                     <div className="flex flex-col lg:flex-row items-center justify-center mx-3 lg:gap-8 gap-8 ">
                         <div className="flex justify-center items-center p-4 gap-8 border border-blue-500 w-full sm:w-full md:w-3/4 lg:w-1/2 xl:w-1/3 h-full">
-                            <i className="fas fa-ship text-2xl text-primary"></i>
+                            <i className="fa-solid fa-truck-fast text-4xl text-primary"></i>
                             <div className="flex flex-col items-start max-w-xs">
-                                <p className="font-bold text-xl">Đây là văn bản in đậm</p>
-                                <p>Đây là văn bản in đậm</p>
+                                <p className="font-bold text-xl">Free shipping</p>
+                                <p>Orders over $200</p>
                             </div>
                         </div>
                         <div className="flex justify-center items-center p-4 gap-8 border border-blue-500 w-full sm:w-full md:w-3/4 lg:w-1/2 xl:w-1/3 h-full">
-                            <i className="fas fa-ship text-2xl text-primary"></i>
+                            <i className="fa-solid fa-coins text-4xl text-primary"></i>
                             <div className="flex flex-col items-start max-w-xs">
-                                <p className="font-bold text-xl">Đây là văn bản in đậm</p>
-                                <p>Đây là văn bản in đậm</p>
+                                <p className="font-bold text-xl">Money Returns</p>
+                                <p>30 Days money return</p>
                             </div>
                         </div>
                         <div className="flex justify-center items-center p-4 gap-8 border border-blue-500 w-full sm:w-full md:w-3/4 lg:w-1/2 xl:w-1/3 h-full">
-                            <i className="fas fa-ship text-2xl text-primary"></i>
+                            <i className="fa-regular fa-clock text-4xl text-primary"></i>
                             <div className="flex flex-col items-start max-w-xs">
-                                <p className="font-bold text-xl">Đây là văn bản in đậm</p>
-                                <p>Đây là văn bản in đậm</p>
+                                <p className="font-bold text-xl">24/7 Support</p>
+                                <p>Customer support</p>
                             </div>
                         </div>
                     </div>
