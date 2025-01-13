@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import authApi from "../api/authApi";
 
@@ -88,9 +88,9 @@ export default function LoginPage() {
                             </a>
                         </div>
                         <div className="text-center mt-2">
-                            <a className="text-sm text-blue-500 hover:underline" href="/auth/register">
+                            <Link className="text-sm text-blue-500 hover:underline" to={"/register"}>
                                 Don't have an account? Register!
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
