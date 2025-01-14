@@ -1,8 +1,8 @@
 import React from "react";
-import CartItem from "../components/CartItem";
-import cartApi from "../api/cartApi";
-import authApi from "../api/authApi";
-import { useCart } from "../context/CartContext";
+import CartItem from "../../components/CartItem";
+import cartApi from "../../api/cartApi";
+import authApi from "../../api/authApi";
+import { useCart } from "../../context/CartContext";
 
 function CartPage() {
     const { cartItems, setCartItems } = useCart();
@@ -78,15 +78,15 @@ function CartPage() {
                         </div>
                         {/* Cart Item */}
                         <div className=" w-full overflow-y-auto h-[45rem] p-2">
-                                {cartItems.map((item) => (
-                                    <CartItem
-                                        key={item.id}
-                                        item={item}
-                                        handleIncrease={handleIncrease}
-                                        handleDecrease={handleDecrease}
-                                        handleRemove={handleRemove}
-                                    />
-                                ))}
+                            {cartItems.map((item) => (
+                                <CartItem
+                                    key={item.id}
+                                    item={item}
+                                    handleIncrease={handleIncrease}
+                                    handleDecrease={handleDecrease}
+                                    handleRemove={handleRemove}
+                                />
+                            ))}
                         </div>
 
                     </div>
@@ -112,7 +112,7 @@ function CartPage() {
                                 <span>Tax :</span>
                                 <strong> Free</strong>
                             </div>
-                            <hr /> 
+                            <hr />
                             <div className="flex justify-between my-4">
                                 <span>Total :</span>
                                 <strong> {totalPrice.toLocaleString()}</strong>

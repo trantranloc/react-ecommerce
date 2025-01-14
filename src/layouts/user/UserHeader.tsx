@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import MiniCart from "../components/MiniCart";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../../context/CartContext";
+import MiniCart from "../../components/MiniCart";
 
 export default function UserHeader() {
     const { cartItemCount } = useCart();

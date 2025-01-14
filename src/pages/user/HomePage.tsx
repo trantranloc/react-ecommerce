@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from "react";
-import Carousel from "../layouts/Carousel";
-import ProductCard from "../components/ProductCard";
-import productApi from "../api/productApi";
+import Carousel from "../../layouts/user/UserCarousel";
+import ProductCard from "../../components/ProductCard";
+import productApi from "../../api/productApi";
 
 export default function HomePage() {
     const [products, setProducts] = useState<Product[]>([]);

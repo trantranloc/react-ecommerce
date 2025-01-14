@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import ProductCard from '../components/ProductCard';
-import productApi from '../api/productApi';
+import ProductCard from '../../components/ProductCard';
+import productApi from '../../api/productApi';
 
 const ProductPage: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
