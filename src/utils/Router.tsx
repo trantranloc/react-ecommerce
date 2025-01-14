@@ -1,22 +1,22 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import UserLayout from '../layouts/UserLayout';
-import AdminLayout from '../layouts/AdminLayout';
-import HomePage from '../pages/HomePage';
+import AdminLayout from '../layouts/admin/AdminLayout';
+import HomePage from '../pages/user/HomePage';
 import Dashboard from '../pages/admin/Dashboard';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import ProductDetail from '../components/ProductDetail';
-import ProfilePage from '../pages/ProfilePage';
-import CartPage from '../pages/CartPage';
+import ProfilePage from '../pages/user/ProfilePage';
+import CartPage from '../pages/user/CartPage';
 import ProductManagement from '../pages/admin/ProductPage';
-import ProductPage from '../pages/ProductPage';
-import UserProfileNav from '../layouts/UserProfileNav';
-import MyAccount from '../pages/MyAccount';
-import CheckoutPage from '../pages/CheckoutPage';
-import ManageAddressPage from '../pages/ManageAddressPage';
-import ForgotPasswordPage from '../pages/ForgotPasswordPage';
-import ChangePassword from '../pages/ChangePassword';
+import ProductPage from '../pages/user/ProductPage';
+import MyAccount from '../pages/user/MyAccount';
+import CheckoutPage from '../pages/user/CheckoutPage';
+import ManageAddressPage from '../pages/user/ManageAddressPage';
+import ForgotPasswordPage from '../pages/user/ForgotPasswordPage';
+import ChangePassword from '../pages/user/ChangePassword';
+import UserLayout from '../layouts/user/UserLayout';
+import UserProfileNav from '../layouts/user/UserProfileNav';
 
 function Router() {
     return (
