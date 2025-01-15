@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function AdminNav() {
     const [openMenu, setOpenMenu] = useState(null);
@@ -33,9 +34,9 @@ export default function AdminNav() {
             <nav className="flex flex-col space-y-4">
                 {/* Dashboard */}
                 <div>
-                    <a href="/dashboard" className="text-lg font-medium flex items-center hover:text-blue-500">
+                    <Link to="/dashboard" className="text-lg font-medium flex items-center hover:text-blue-500">
                         <i className="fas fa-tachometer-alt mr-2"></i> Dashboard
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Manage Products */}
@@ -49,9 +50,9 @@ export default function AdminNav() {
                     </button>
                     {openMenu === 'products' && (
                         <div className="pl-6 mt-2 space-y-2">
-                            <a href="/list-products" className="block text-sm hover:text-blue-500">List Products</a>
-                            <a href="/add-product" className="block text-sm hover:text-blue-500">Add Product</a>
-                            <a href="/product-reviews" className="block text-sm hover:text-blue-500">Product Reviews</a>
+                            <Link to="/list-products" className="block text-sm hover:text-blue-500">List Products</Link>
+                            <Link to="/add-product" className="block text-sm hover:text-blue-500">Add Product</Link>
+                            <Link to="/product-reviews" className="block text-sm hover:text-blue-500">Product Reviews</Link>
                         </div>
                     )}
                 </div>
@@ -67,8 +68,8 @@ export default function AdminNav() {
                     </button>
                     {openMenu === 'categories' && (
                         <div className="pl-6 mt-2 space-y-2">
-                            <a href="/list-categories" className="block text-sm hover:text-blue-500">List Categories</a>
-                            <a href="/add-category" className="block text-sm hover:text-blue-500">Add Category</a>
+                            <Link to="/list-categories" className="block text-sm hover:text-blue-500">List Categories</Link>
+                            <Link to="/add-category" className="block text-sm hover:text-blue-500">Add Category</Link>
                         </div>
                     )}
                 </div>
@@ -84,8 +85,8 @@ export default function AdminNav() {
                     </button>
                     {openMenu === 'orders' && (
                         <div className="pl-6 mt-2 space-y-2">
-                            <a href="/list-orders" className="block text-sm hover:text-blue-500">List Orders</a>
-                            <a href="/order-status" className="block text-sm hover:text-blue-500">Order Status</a>
+                            <Link to="/list-orders" className="block text-sm hover:text-blue-500">List Orders</Link>
+                            <Link to="/order-status" className="block text-sm hover:text-blue-500">Order Status</Link>
                         </div>
                     )}
                 </div>
@@ -101,8 +102,8 @@ export default function AdminNav() {
                     </button>
                     {openMenu === 'customers' && (
                         <div className="pl-6 mt-2 space-y-2">
-                            <a href="/list-customers" className="block text-sm hover:text-blue-500">List Customers</a>
-                            <a href="/customer-feedback" className="block text-sm hover:text-blue-500">Customer Feedback</a>
+                            <Link to="/list-customers" className="block text-sm hover:text-blue-500">List Customers</Link>
+                            <Link to="/customer-feedback" className="block text-sm hover:text-blue-500">Customer Feedback</Link>
                         </div>
                     )}
                 </div>
@@ -118,8 +119,8 @@ export default function AdminNav() {
                     </button>
                     {openMenu === 'reports' && (
                         <div className="pl-6 mt-2 space-y-2">
-                            <a href="/sales-reports" className="block text-sm hover:text-blue-500">Sales Reports</a>
-                            <a href="/customer-reports" className="block text-sm hover:text-blue-500">Customer Reports</a>
+                            <Link to="/sales-reports" className="block text-sm hover:text-blue-500">Sales Reports</Link>
+                            <Link to="/customer-reports" className="block text-sm hover:text-blue-500">Customer Reports</Link>
                         </div>
                     )}
                 </div>
@@ -135,8 +136,8 @@ export default function AdminNav() {
                     </button>
                     {openMenu === 'settings' && (
                         <div className="pl-6 mt-2 space-y-2">
-                            <a href="/general-settings" className="block text-sm hover:text-blue-500">General Settings</a>
-                            <a href="/account-settings" className="block text-sm hover:text-blue-500">Account Settings</a>
+                            <Link to="/general-settings" className="block text-sm hover:text-blue-500">General Settings</Link>
+                            <Link to="/account-settings" className="block text-sm hover:text-blue-500">Account Settings</Link>
                         </div>
                     )}
                 </div>

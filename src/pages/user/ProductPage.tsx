@@ -2,15 +2,26 @@ import React, { useEffect, useState } from 'react';
 
 import ProductCard from '../../components/ProductCard';
 import productApi from '../../api/productApi';
+import { useLocation } from 'react-router-dom';
 
 const ProductPage: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
+    const location = useLocation();
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const data = await productApi.getAll();
+                const query = new URLSearchParams(location.search);
+                const title = query.get('title');
+
+                let data;
+                if (title!= null || title) {
+                    data = await productApi.search(title);
+                } else {
+                    data = await productApi.getAll();
+                }
+
                 setProducts(data);
             } catch (err) {
                 console.error('Failed to fetch products:', err);
@@ -18,8 +29,9 @@ const ProductPage: React.FC = () => {
                 setLoading(false);
             }
         };
+
         fetchProducts();
-    }, []);
+    }, [location.search]);
 
     return (
         <div className="container mx-auto flex flex-wrap">

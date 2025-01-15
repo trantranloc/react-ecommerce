@@ -12,7 +12,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
     return (
         <>
             <div className="relative border border-primary p-4 group rounded-md">
-                <img src={product.image || "https://th.bing.com/th/id/OIP.AsWQ7GPvHWOy8g-8CzEzQAHaEK?w=285&h=180&c=7&r=0&o=5&pid=1.7"} alt="Product image" className="w-full h-60 object-fill mb-4" />
+                <img src={product.image} alt="Product image" className="w-full h-60 object-fill mb-4" />
                 <h2 className="text-lg font-bold">{product.title}</h2>
                 <p className="text-primary font-semibold">{product.price}</p>
                 <div className="flex items-center mt-2">
