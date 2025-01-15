@@ -29,6 +29,7 @@ function Router() {
                 <Route path="/products/:id" element={<ProductDetail />} />
                 <Route path="/carts" element={<CartPage />} />
                 <Route path="/products" element={<ProductPage />} />
+                <Route path="/products/search" element={<ProductPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/forgot-password" element={<ForgotPasswordPage />} />
                 <Route path="/change-password" element={<ChangePassword />} />

@@ -1,9 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import MiniCart from "../../components/MiniCart";
+import { useState } from "react";
 
 export default function UserHeader() {
     const { cartItemCount } = useCart();
+    const [title, setTitle] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        if (!title.trim()) {
+            navigate('/products');
+        } else {
+            navigate(`/products/search?title=${encodeURIComponent(title)}`);
+        }
+    };
+
     return (
         // Header
         <header className="bg-white shadow-lg">
@@ -20,13 +32,16 @@ export default function UserHeader() {
                     {/* Input */}
                     <input
                         type="search"
+                        value={title}
+                        onChange={(e)=> setTitle(e.target.value)}
                         className="w-full pl-10 pr-4 p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary"
                         placeholder="Tìm kiếm sản phẩm..."
                     />
                     {/* Search Button */}
-                    <div className="bg-green-500 flex items-center justify-center text-white px-6 rounded-r-lg hover:bg-opacity-80">
+                    <button className="bg-green-500 flex items-center justify-center text-white px-6 rounded-r-lg hover:bg-opacity-80"
+                    onClick={handleSearch}>
                         <p className="m-0">SEARCH</p>
-                    </div>
+                    </button>
 
 
                 </div>

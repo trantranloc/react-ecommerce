@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UserFooter = () => {
     return (
@@ -50,36 +51,36 @@ const UserFooter = () => {
                                 <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
                                 <ul className="list-unstyled">
                                     <li>
-                                        <a
+                                        <Link
                                             className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                            href="https://www.creative-tim.com/presentation?ref=njs-profile"
+                                            to="/about-us"
                                         >
                                             About Us
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                            href="https://blog.creative-tim.com?ref=njs-profile"
+                                            to="/blog"
                                         >
                                             Blog
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                            href="https://www.github.com/creativetimofficial?ref=njs-profile"
+                                            to="/github"
                                         >
                                             Github
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                                            href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
+                                            to="/free-products"
                                         >
                                             Free Products
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -90,6 +91,8 @@ const UserFooter = () => {
                                         <a
                                             className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                                             href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             MIT License
                                         </a>
@@ -98,6 +101,8 @@ const UserFooter = () => {
                                         <a
                                             className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                                             href="https://creative-tim.com/terms?ref=njs-profile"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             Terms &amp; Conditions
                                         </a>
@@ -106,6 +111,8 @@ const UserFooter = () => {
                                         <a
                                             className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                                             href="https://creative-tim.com/privacy?ref=njs-profile"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             Privacy Policy
                                         </a>
@@ -114,6 +121,8 @@ const UserFooter = () => {
                                         <a
                                             className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                                             href="https://creative-tim.com/contact-us?ref=njs-profile"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             Contact Us
                                         </a>
@@ -136,14 +145,16 @@ const UserFooter = () => {
                             >
                                 {' '}
                                 Notus JS by
-                                <a
-                                    href="https://www.creative-tim.com?ref=njs-profile"
-                                    className="text-blueGray-500 hover:text-blueGray-800"
-                                >
-                                    Creative Tim
-                                </a>
-                                .
                             </a>
+                            <a
+                                href="https://www.creative-tim.com?ref=njs-profile"
+                                className="text-blueGray-500 hover:text-blueGray-800"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Creative Tim
+                            </a>
+                            .
                         </div>
                     </div>
                 </div>

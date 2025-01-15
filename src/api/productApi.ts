@@ -29,6 +29,19 @@ const productApi = {
     delete: async (id: number): Promise<void> => {
         await apiInstance.delete(`/products/${id}`);
     },
+    // Search product
+search: async (keyword: string): Promise<Product[]> => {
+    const response = await apiInstance.get<{ result: Product[] }>(`/products/search`, {
+        params: { title: keyword }
+    });
+    return response.data.result;
+},
+
+    // Lấy danh sách loại sản phẩm 
+    getCategories: async (): Promise<Category[]> => { 
+        const response = await apiInstance.get< Category[] >('/categories');
+        return response.data;
+    }
 };
 
 export default productApi;
